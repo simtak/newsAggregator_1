@@ -3,8 +3,12 @@ const searchForm = document.getElementById("search-form")
 
 document.getElementById("send-btn").addEventListener("click", (e) => {
     e.preventDefault()
-    const query = document.getElementById("input-field").value
-    getDataFromAPI(query)
+    let query = document.getElementById("input-field").value
+    if(query){
+        getDataFromAPI(query)
+        
+    }
+    
     
 
 })
@@ -26,19 +30,22 @@ function displaySearchResults(apiResults){
 
     const html = resultsArr.map(element => {
         return `
-        <div>
+        
             <div class="search-result-box">
                 <img src="${element.fields.thumbnail}">
                 <div>
                 <a href="${element.webUrl}">${element.webTitle}</a>
                 <p>${element.fields.trailText}</p>
-                <p>Published: ${element.webPublicationDate.substring(0,10)}</p>
-                <p>Author(s): ${element.fields.byline}</p>
+                    <div class="search-result-box-infos">
+                        <p>Published: ${element.webPublicationDate.substring(0,10)}</p>
+                        <p>Author(s): ${element.fields.byline}</p>
+                        <p>Section: ${element.sectionName}</p>
+                    </div>
                 </div>
-            </div>
+             </div>
 
 
-        </div>
+        
     `
     }).join("")
 
