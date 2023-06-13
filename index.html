@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Merriweather:wght@300&family=Source+Code+Pro:wght@200&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="ressources/icons8-news-16.png"/>
     <link rel="stylesheet" href="styles.css">
     <title>Document</title>
     
@@ -12,12 +16,33 @@
     <header class="header"></header>
     <main class="content-search-main">
         <h1 class="main-heading">Get News Articles from the Guardian Newspaper</h1>
-        <form id="search-form">
-            <input type="text" name="article-search" id="input-field">
-            <Button id="send-btn">Get Articles</Button>
+        <form id="search-form" class="search-form">
+            <div>
+                <input type="text" name="article-search" id="input-field">
+                <button id="send-btn">Search for Articles</button>
+                <button id="filters-btn">Additional Filters</button>
+            </div>
+            <div class="hidden helper">
+                <div >
+                    <label for="guardian-order-select">Order by: </label>
+                    <select name="guardian-order-select" id="guardian-order-select">
+                        <option value="newest">Newest</option>
+                        <option value="oldest">Oldest</option>
+                        <option value="relevance">Relevance</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="guardian-order-date-after">Return only content published on or after: </label>
+                    <input type="date" name="guardian-order-date-after" id="guardian-order-date-after">
+                </div>
+                <div>
+                    <label for="guardian-order-date-before">Return only content published on or before: </label>
+                    <input type="date" name="guardian-order-date-before" id="guardian-order-date-before">
+                </div>
+            </div>
         </form>
         <div id="search-results" class="search-results">
-            
+
         </div>
     </main>
     
